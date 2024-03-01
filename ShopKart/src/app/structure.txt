@@ -1,0 +1,42 @@
+src/
+|-- app/
+    |-- auth/
+    |   |-- auth.module.ts
+    |   |-- auth-routing.module.ts
+    |   |-- login/
+    |   |   |-- login.component.html
+    |   |   |-- login.component.ts
+    |   |-- register/
+    |       |-- register.component.html
+    |       |-- register.component.ts
+    |
+    |-- admin/
+    |   |-- admin.module.ts
+    |   |-- admin-routing.module.ts
+    |   |-- dashboard/
+    |       |-- dashboard.component.html
+    |       |-- dashboard.component.ts
+    |
+    |-- user/
+    |   |-- user.module.ts
+    |   |-- user-routing.module.ts
+    |   |-- profile/
+    |       |-- profile.component.html
+    |       |-- profile.component.ts
+    |
+    |-- shared/
+    |   |-- components/
+    |   |   |-- header/
+    |   |   |   |-- header.component.html
+    |   |   |   |-- header.component.ts
+    |   |   |-- footer/
+    |   |       |-- footer.component.html
+    |   |       |-- footer.component.ts
+    |   |
+    |   |-- services/
+    |       |-- authentication.service.ts
+    |       |-- user.service.ts
+    |
+    |-- app.module.ts
+    |-- app-routing.module.ts
+

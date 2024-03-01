@@ -1,0 +1,56 @@
+<app-publicnavbar></app-publicnavbar>
+
+<div class="container login-container" style="margin-top: 120px;">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-sm-8">
+      <div class="card login-card">
+        <div class="card-header">
+          <h3>Login</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email"
+                formControlName="email"
+                [ngClass]="{'is-invalid': submit && f.email.errors}"
+                class="form-control" id="email" name="email" placeholder="Enter your email address" required>
+              <div *ngIf="submit && f.email.errors?.['required']" class="invalid-feedback">
+                Email is required
+              </div>
+              <div *ngIf="submit && f.email.errors?.['email']" class="invalid-feedback">
+                Please enter a valid email address
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" 
+                formControlName="password"
+                [ngClass]="{'is-invalid': submit && f.password.errors}"
+                class="form-control" id="password" name="password" placeholder="Enter your password" required>
+              <div *ngIf="submit && f.password.errors?.['required']" class="invalid-feedback">
+                Password is required
+              </div>
+              
+            </div>
+
+            <button type="submit"  class="btn btn-danger btn-block btn-login">Login</button>
+          </form>
+          
+          <div class="forgot-password text-left" style="margin-top: 20px;">
+            <a routerLink="">Forgot Password?</a>
+          </div>
+          <div class="signup-link text-left">
+            Don't have an account? <a routerLink="/signup">Sign Up</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+          <br>
+
+<app-footer></app-footer>
