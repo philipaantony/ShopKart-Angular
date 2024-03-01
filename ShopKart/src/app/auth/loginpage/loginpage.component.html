@@ -1,56 +1,86 @@
 <app-publicnavbar></app-publicnavbar>
+<section class="">
+  <!-- Jumbotron -->
+  <div class="px-4 py-5 px-md-5 text-lg-start" style="background-color: hsl(0, 0%, 100%)">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-5 display-3 fw-bold ls-tight">
+              Welcome to  <br />
+              <span class="text-primary">ShopKart</span>
+          </h1>
+          <p style="color: hsl(217, 10%, 50.8%)">
+              Discover the latest trends and find unbeatable deals on a 
+              wide range of products at ShopKart. Whether you're looking for fashion, 
+              electronics, home essentials, or more, we've got you covered. Shop with 
+              confidence and explore a world of endless possibilities.
+          </p>
+      </div>
+      
+        <div class="col-lg-6 mb-5 mb-lg-0" style="margin-top: 50px;margin-bottom: 50px;">
+          <div class="card" style="border-radius: 20px;">
+            <div class="card-body py-5 px-md-5">
 
-<div class="container login-container" style="margin-top: 120px;">
-  <div class="row justify-content-center">
-    <div class="col-md-5 col-sm-8">
-      <div class="card login-card">
-        <div class="card-header">
-          <h3>Login</h3>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email"
-                formControlName="email"
-                [ngClass]="{'is-invalid': submit && f.email.errors}"
-                class="form-control" id="email" name="email" placeholder="Enter your email address" required>
-              <div *ngIf="submit && f.email.errors?.['required']" class="invalid-feedback">
-                Email is required
+
+
+              <div class="card login-card">
+                <div class="card-header text-left">
+                  <h3>Login</h3>
+                </div>
+                <div class="card-body">
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                      <label for="email" class="form-label text-left">Email</label>
+                      <input type="email"
+                        formControlName="email"
+                        [ngClass]="{'is-invalid': submit && f.email.errors}"
+                        [style.border-width]="submit && f.email.errors ? '2px' : '1px'"
+                        class="form-control" id="email" name="email" placeholder="Enter your email address" required>
+                      <div *ngIf="submit && f.email.errors?.['required']" style="font-weight: bold" class="invalid-feedback">
+                        **Email is required
+                      </div>
+                      <div *ngIf="submit && f.email.errors?.['email']" style="font-weight: bold" class="invalid-feedback">
+                        **Please enter a valid email address
+                      </div>
+                    </div>
+        
+                    <div class="mb-3">
+                      <label for="password" class="form-label text-left">Password</label>
+                      <input type="password" 
+                        formControlName="password"
+                        [ngClass]="{'is-invalid': submit && f.password.errors}"
+                        [style.border-width]="submit && f.password.errors ? '2px' : '1px'"
+                        class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                      <div *ngIf="submit && f.password.errors?.['required']" style="font-weight: bold" class="invalid-feedback">
+                        **Password is required
+                      </div>
+                      
+                    </div>
+        
+                    <button type="submit"  class="btn btn-danger btn-block btn-login">Login</button>
+                  </form>
+                  
+                  <div class="forgot-password text-left" style="margin-top: 20px;">
+                    <a routerLink="">Forgot Password?</a>
+                  </div>
+                  <div class="signup-link text-left">
+                    Don't have an account? <a routerLink="/signup">Sign Up</a>
+                  </div>
+                  
+                </div>
               </div>
-              <div *ngIf="submit && f.email.errors?.['email']" class="invalid-feedback">
-                Please enter a valid email address
-              </div>
+
+
+
+
+
             </div>
-
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" 
-                formControlName="password"
-                [ngClass]="{'is-invalid': submit && f.password.errors}"
-                class="form-control" id="password" name="password" placeholder="Enter your password" required>
-              <div *ngIf="submit && f.password.errors?.['required']" class="invalid-feedback">
-                Password is required
-              </div>
-              
-            </div>
-
-            <button type="submit"  class="btn btn-danger btn-block btn-login">Login</button>
-          </form>
-          
-          <div class="forgot-password text-left" style="margin-top: 20px;">
-            <a routerLink="">Forgot Password?</a>
           </div>
-          <div class="signup-link text-left">
-            Don't have an account? <a routerLink="/signup">Sign Up</a>
-          </div>
-          
         </div>
       </div>
     </div>
   </div>
-</div>
-<br>
-          <br>
-
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
 <app-footer></app-footer>
