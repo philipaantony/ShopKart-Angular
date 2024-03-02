@@ -58,7 +58,7 @@ app.post("/api/userreg", async (req, res) => {
 //----------------------------------------------------------------
 app.get("/api/allusers", async (req, res) => {
     try {
-        console.log("i ma here")
+
         const allUsers = await User.find().populate('_id');
         res.status(200).json(allUsers);
     } catch (error) {
@@ -74,7 +74,7 @@ app.post("/api/login", async (req, res) => {
         const user = await Login.findOne({ email });
 
         if (!user) {
-            return res.status(401).json({ message: "nouser" });
+            return res.status(200).json({ message: "nouser" });
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password);

@@ -22,7 +22,6 @@ export class AdminViewUserlistComponent {
   blockUser(user: any) {
     console.log(`Block user: ${user.fullname}`);
     this.toastr.success(user._id.status) 
-    // Add logic to send a request to block the user
   }
 
   unblockUser(user: any) {
