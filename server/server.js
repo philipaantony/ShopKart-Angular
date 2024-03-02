@@ -58,6 +58,7 @@ app.post("/api/userreg", async (req, res) => {
 //----------------------------------------------------------------
 app.get("/api/allusers", async (req, res) => {
     try {
+        console.log("i ma here")
         const allUsers = await User.find().populate('_id');
         res.status(200).json(allUsers);
     } catch (error) {
@@ -73,7 +74,7 @@ app.post("/api/login", async (req, res) => {
         const user = await Login.findOne({ email });
 
         if (!user) {
-            return res.status(401).json({ message: "Invalid credentials" });
+            return res.status(401).json({ message: "nouser" });
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password);
@@ -81,11 +82,11 @@ app.post("/api/login", async (req, res) => {
         if (passwordMatch) {
             return res.status(200).json({ message: "Login successful", user, });
         } else {
-            return res.status(200).json({ message: "Invalid credentials" });
+            return res.status(200).json({ message: "nouser" });
         }
     } catch (error) {
         console.error("Error during login:", error);
-        res.status(200).json({ message: "Internal server error" });
+        res.status(200).json({ message: "nouser" });
     }
 });
 

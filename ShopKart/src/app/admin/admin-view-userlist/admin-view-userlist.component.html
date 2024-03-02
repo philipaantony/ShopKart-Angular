@@ -1,0 +1,40 @@
+<app-admin-navbar></app-admin-navbar>
+<br><br>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      User List
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>User Type</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userdata">
+            <td>{{ user.fullname }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phonenumber }}</td>
+            <td>{{ user._id.userType }}</td>
+            <td>{{ user._id.status }}</td>
+            <td>
+              <!-- Add a button based on the user's status -->
+              <button *ngIf="user._id.status === 'authorized'" class="btn btn-danger" (click)="blockUser(user)">Block</button>
+              <button *ngIf="user._id.status === 'blocked'" class="btn btn-success" (click)="unblockUser(user)">Unblock</button>
+                   </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<app-footer></app-footer>

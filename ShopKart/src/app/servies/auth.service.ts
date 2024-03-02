@@ -19,4 +19,9 @@ export class AuthService {
     console.log(data)
     return this.http.post<any>('http://localhost:5000/api/login',data)
   }
+
+  getallUsers()
+  {
+    return this.http.get<any>('http://localhost:5000/api/allusers')
+  }
 }

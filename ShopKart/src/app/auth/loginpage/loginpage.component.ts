@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../servies/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';  
 
 @Component({
   selector: 'app-loginpage',
@@ -10,8 +11,13 @@ import { Router } from '@angular/router';
 })
 export class LoginpageComponent {
   constructor(private fb: FormBuilder,
+    private toastr: ToastrService,
     private loginService:AuthService,
-    private router: Router) {}
+    private router: Router) {
+      
+    }
+
+   
 
   submit = false;
 
@@ -30,16 +36,22 @@ export class LoginpageComponent {
     if (this.loginForm.valid) {
       console.log("Form submitted");
       console.log(this.loginForm.value);
+
       this.loginService.Login(this.loginForm.value).subscribe((res)=>
       {
-        alert(res.message)
-        alert(res.user.userType)
+        if(res.message ==='nouser')
+        {
+          this.toastr.error("Invalid credentials") 
+        }
+      
         if (res.user.userType === 'admin') {
+          this.toastr.success("Welcome Admin") 
           this.router.navigate(['/adminhome']); // Navigate to admin home
         } else if (res.user.userType === 'user') {
-          this.router.navigate(['/adminhome']); // Navigate to user home
+          this.toastr.success("Welcome User") 
+          this.router.navigate(['/userhome']); // Navigate to user home
         } else {
-          // Handle other user types or cases as needed
+          this.toastr.error(res.message)  
         }
       }
       )

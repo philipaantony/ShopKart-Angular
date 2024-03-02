@@ -4,12 +4,15 @@ import { LoginpageComponent } from './auth/loginpage/loginpage.component';
 import { UserregpageComponent } from './auth/userregpage/userregpage.component';
 import { AdminhomepageComponent } from './admin/adminhomepage/adminhomepage.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
+import { AdminViewUserlistComponent } from './admin/admin-view-userlist/admin-view-userlist.component';
 
 const routes: Routes = [
   { path:'', component: LoginpageComponent },
   { path:'signup', component: UserregpageComponent },
   { path:'adminhome', component: AdminhomepageComponent },
+  { path:'userlist', component: AdminViewUserlistComponent },
   { path:'userhome', component: UserHomeComponent },
+  
   
 ];
 

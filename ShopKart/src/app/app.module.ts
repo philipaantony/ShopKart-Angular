@@ -11,10 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AdminhomepageComponent } from './admin/adminhomepage/adminhomepage.component';
-import { ViewUserListPageComponent } from './admin/view-user-list-page/view-user-list-page.component';
+
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserNavbarComponent } from './user/user-navbar/user-navbar.component'; 
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AdminViewUserlistComponent } from './admin/admin-view-userlist/admin-view-userlist.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +28,18 @@ import { UserNavbarComponent } from './user/user-navbar/user-navbar.component';
     PublicnavbarComponent,
     FooterComponent,
     AdminhomepageComponent,
-    ViewUserListPageComponent,
     AdminNavbarComponent,
     UserHomeComponent,
-    UserNavbarComponent
+    UserNavbarComponent,
+    AdminViewUserlistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     provideClientHydration()
