@@ -64,6 +64,9 @@
                       >
                         **Email is required
                       </div>
+                      <div *ngIf="submit && f.email.errors?.['email']"  class="invalid-feedback">
+                        **Please enter a valid email address
+                      </div>
                     </div>
 
                     <div class="mb-3">

@@ -1,7 +1,6 @@
-// userregpage.component.ts
-
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../servies/auth.service';
 
 @Component({
   selector: 'app-userregpage',
@@ -9,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./userregpage.component.css']
 })
 export class UserregpageComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private authService:AuthService) {}
 
   submit = false;
 
@@ -31,6 +30,11 @@ export class UserregpageComponent {
     if (this.registerdata.valid) {
       console.log("form submitted");
       console.log(this.registerdata.value);
+      this.authService.registerUser(this.registerdata.value).subscribe((res)=>
+      {
+        alert(res.message)
+      }
+      )
       // Add any further actions you want to perform on successful form submission
     } else {
       console.log("Form is not valid. Please check the errors.");

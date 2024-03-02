@@ -9,18 +9,31 @@ import { PublicnavbarComponent } from './shared/publicnavbar/publicnavbar.compon
 import { FooterComponent } from './shared/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+import { AdminhomepageComponent } from './admin/adminhomepage/adminhomepage.component';
+import { ViewUserListPageComponent } from './admin/view-user-list-page/view-user-list-page.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
+import { UserNavbarComponent } from './user/user-navbar/user-navbar.component'; 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginpageComponent,
     UserregpageComponent,
     PublicnavbarComponent,
-    FooterComponent
+    FooterComponent,
+    AdminhomepageComponent,
+    ViewUserListPageComponent,
+    AdminNavbarComponent,
+    UserHomeComponent,
+    UserNavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
