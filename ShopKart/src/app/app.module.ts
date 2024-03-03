@@ -19,6 +19,9 @@ import { UserNavbarComponent } from './user/user-navbar/user-navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminViewUserlistComponent } from './admin/admin-view-userlist/admin-view-userlist.component';
+import { BlogpageComponent } from './shared/blogpage/blogpage.component';
+import { UserblogpageComponent } from './user/userblogpage/userblogpage.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AdminViewUserlistComponent } from './admin/admin-view-userlist/admin-vi
     AdminNavbarComponent,
     UserHomeComponent,
     UserNavbarComponent,
-    AdminViewUserlistComponent
+    AdminViewUserlistComponent,
+    BlogpageComponent,
+    UserblogpageComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,

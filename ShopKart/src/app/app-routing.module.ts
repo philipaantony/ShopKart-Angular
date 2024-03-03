@@ -7,6 +7,8 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
 import { AdminViewUserlistComponent } from './admin/admin-view-userlist/admin-view-userlist.component';
 import { authGuard } from './auth-guard/auth.guard';
 import { authUserGuard } from './auth-guard/auth-user.guard';
+import { UserblogpageComponent } from './user/userblogpage/userblogpage.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
 
 const routes: Routes = [
   { path: '', component: LoginpageComponent },
@@ -35,9 +37,14 @@ const routes: Routes = [
         component: UserHomeComponent,
       },
       {
-        path: 'userlist',
+        path: '',
         canActivateChild: [authUserGuard],
-        component: AdminViewUserlistComponent,
+        children:[
+          {path: 'userlist', component: AdminViewUserlistComponent},
+          {path: 'profile', component: UserprofileComponent},
+          {path: 'userblog', component: UserblogpageComponent},
+        ]
+       
       },
     ],
   },

@@ -55,6 +55,24 @@ app.post("/api/userreg", async (req, res) => {
 });
 
 
+///for profile 
+app.get("/api/user/:id", async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findOne({ _id: userId });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        console.error("Error fetching user details:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+//
+
+
 //----------------------------------------------------------------
 app.get("/api/allusers", async (req, res) => {
     try {
@@ -92,4 +110,27 @@ app.post("/api/login", async (req, res) => {
 
 app.listen(5000, () => {
     console.log("server running on port 5000");
+});
+
+
+
+app.put("/api/update-status/:id", async (req, res) => {
+    try {
+        const loginId = req.params.id;
+        const { status } = req.body;
+        const updatedLogin = await Login.findByIdAndUpdate(
+            loginId,
+            { $set: { status: status } },
+            { new: true }
+        );
+
+        if (!updatedLogin) {
+            return res.status(404).json({ message: "Login not found" });
+        }
+
+        res.status(200).json({ message: "Status updated successfully", updatedLogin });
+    } catch (error) {
+        console.error("Error updating status:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
 });
