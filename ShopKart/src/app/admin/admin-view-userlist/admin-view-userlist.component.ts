@@ -12,21 +12,39 @@ export class AdminViewUserlistComponent {
 
  userdata: any[]=[];
   ngOnInit() {
+    this.refreshUserList();
+  }
+
+  refreshUserList() {
     this.authService.getallUsers().subscribe(res => {
-      
       this.userdata = res;
-      console.log(this.userdata); 
+      console.log(this.userdata);
     });
   }
-
-  blockUser(user: any) {
-    console.log(`Block user: ${user.fullname}`);
-    this.toastr.success(user._id.status) 
+  blockUser(userId: any, status: string) {
+    console.log(`Block user with ID ${userId}`);
+    this.authService.updateuserstatus(userId, status).subscribe(response => {
+      this.toastr.success("Status updated successfully");
+      this.refreshUserList();
+      console.log(response)
+    }, error => {
+      this.toastr.error("Failed");
+    });
+  }
+  
+  unblockUser(userId: any, status: string) {
+    console.log(`Unblock user with ID ${userId}`);
+    
+    this.authService.updateuserstatus(userId, status).subscribe(response => {
+      this.toastr.success("Status updated successfully");
+      this.refreshUserList();
+      console.log(response)
+    }, error => {
+      this.toastr.error("Failed");
+    });
+  }
+  
+  
   }
 
-  unblockUser(user: any) {
- 
-    this.toastr.success(user._id.status) 
-  }
 
-}

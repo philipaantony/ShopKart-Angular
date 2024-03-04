@@ -24,4 +24,8 @@ export class AuthService {
   {
     return this.http.get<any>('http://localhost:5000/api/allusers')
   }
+  updateuserstatus(id: number,status:any) {
+    const url = `http://localhost:5000/api/update-status/${id}`;
+    return this.http.put<any>(url, {status});
+  }
 }

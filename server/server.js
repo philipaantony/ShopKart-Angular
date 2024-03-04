@@ -118,6 +118,8 @@ app.put("/api/update-status/:id", async (req, res) => {
     try {
         const loginId = req.params.id;
         const { status } = req.body;
+        console.log("id---", loginId);
+        console.log("status ---", status)
         const updatedLogin = await Login.findByIdAndUpdate(
             loginId,
             { $set: { status: status } },

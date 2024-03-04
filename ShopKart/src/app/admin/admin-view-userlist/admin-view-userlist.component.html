@@ -19,6 +19,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of userdata">
+            
             <td>{{ user.fullname }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phonenumber }}</td>
@@ -26,8 +27,8 @@
             <td>{{ user._id.status }}</td>
             <td>
               <!-- Add a button based on the user's status -->
-              <button *ngIf="user._id.status === 'authorized'" class="btn btn-danger" (click)="blockUser(user)">Block</button>
-              <button *ngIf="user._id.status === 'blocked'" class="btn btn-success" (click)="unblockUser(user)">Unblock</button>
+              <button *ngIf="user._id.status === 'authorized'" class="btn btn-danger" (click)="blockUser(user._id._id,'blocked')">Block</button>
+              <button *ngIf="user._id.status === 'blocked'" class="btn btn-success" (click)="unblockUser(user._id._id,'authorized')">Unblock</button>
                    </td>
           </tr>
         </tbody>
