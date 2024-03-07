@@ -1,0 +1,181 @@
+<app-admin-navbar></app-admin-navbar>
+<br />
+<br />
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">Add Product</h5>
+    </div>
+    <div class="card-body" style="max-width: 600px">
+      <form [formGroup]="registerdata" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="productName" class="form-label">Product Name</label>
+          <input
+            type="text"
+            formControlName="productName"
+            [ngClass]="{
+              'is-invalid': submit && registerdata.controls.productName.errors
+            }"
+            class="form-control"
+            id="productName"
+            name="productName"
+            placeholder="Product Name"
+            required
+          />
+          <div
+            *ngIf="submit && f.productName.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Product Name is required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="productDescription" class="form-label"
+            >Product Description</label
+          >
+          <input
+            type="text"
+            formControlName="productDescription"
+            [ngClass]="{
+              'is-invalid':
+                submit && registerdata.controls.productDescription.errors
+            }"
+            class="form-control"
+            id="productDescription"
+            name="productDescription"
+            placeholder="Product Description"
+            required
+          />
+          <div
+            *ngIf="submit && f.productDescription.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Product Description is required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="productCategory" class="form-label"
+            >Product Category</label
+          >
+          <input
+            type="text"
+            formControlName="productCategory"
+            [ngClass]="{
+              'is-invalid':
+                submit && registerdata.controls.productCategory.errors
+            }"
+            class="form-control"
+            id="productCategory"
+            name="productCategory"
+            placeholder="Product Category"
+            required
+          />
+          <div
+            *ngIf="submit && f.productCategory.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Product Category is required
+          </div>
+        </div>
+
+        <!-- Add more fields in a similar structure -->
+
+        <div class="mb-3">
+          <label for="productPrice" class="form-label">Product Price</label>
+          <input
+            type="number"
+            formControlName="productPrice"
+            [ngClass]="{
+              'is-invalid': submit && registerdata.controls.productPrice.errors
+            }"
+            class="form-control"
+            id="productPrice"
+            name="productPrice"
+            placeholder="Product Price"
+            required
+          />
+          <div
+            *ngIf="submit && f.productPrice.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Product Price is required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="stockQuantity" class="form-label">Stock Quantity</label>
+          <input
+            type="number"
+            formControlName="stockQuantity"
+            [ngClass]="{
+              'is-invalid': submit && registerdata.controls.stockQuantity.errors
+            }"
+            class="form-control"
+            id="stockQuantity"
+            name="stockQuantity"
+            placeholder="Stock Quantity"
+            required
+          />
+          <div
+            *ngIf="submit && f.stockQuantity.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Stock Quantity is required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="manufacturer" class="form-label">Manufacturer</label>
+          <input
+            type="text"
+            formControlName="manufacturer"
+            [ngClass]="{
+              'is-invalid': submit && registerdata.controls.manufacturer.errors
+            }"
+            class="form-control"
+            id="manufacturer"
+            name="manufacturer"
+            placeholder="Manufacturer"
+            required
+          />
+          <div
+            *ngIf="submit && f.manufacturer.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Manufacturer is required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Image URL</label>
+          <input
+            type="file"
+            formControlName="imageUrl"
+            [ngClass]="{
+              'is-invalid': submit && registerdata.controls.imageUrl.errors
+            }"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            placeholder="Image URL"
+            required
+          />
+          <div
+            *ngIf="submit && f.imageUrl.errors?.['required']"
+            class="invalid-feedback"
+          >
+            **Image URL is required
+          </div>
+        </div>
+
+        <!-- ... (rest of your template) ... -->
+
+        <button type="submit" class="btn btn-success btn-block">
+          Add Product
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

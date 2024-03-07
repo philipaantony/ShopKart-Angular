@@ -22,6 +22,7 @@ import { AdminViewUserlistComponent } from './admin/admin-view-userlist/admin-vi
 import { BlogpageComponent } from './shared/blogpage/blogpage.component';
 import { UserblogpageComponent } from './user/userblogpage/userblogpage.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UserprofileComponent } from './user/userprofile/userprofile.component';
     AdminViewUserlistComponent,
     BlogpageComponent,
     UserblogpageComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,

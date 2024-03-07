@@ -9,6 +9,7 @@ import { authGuard } from './auth-guard/auth.guard';
 import { authUserGuard } from './auth-guard/auth-user.guard';
 import { UserblogpageComponent } from './user/userblogpage/userblogpage.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
 
 const routes: Routes = [
   { path: '', component: LoginpageComponent },
@@ -22,9 +23,12 @@ const routes: Routes = [
         component: AdminhomepageComponent,
       },
       {
-        path: 'userlist',
+        path: '',
         canActivateChild: [authGuard],
-        component: AdminViewUserlistComponent,
+        children:[
+          {path: 'userlist', component: AdminViewUserlistComponent},
+          {path: 'addproduct', component: AddproductComponent},
+        ]
       },
     ],
   },
