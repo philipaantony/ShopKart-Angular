@@ -47,17 +47,17 @@ export class LoginpageComponent {
         if (res.user.userType === 'admin') {
           this.toastr.success("Welcome Admin") 
 
-          sessionStorage.setItem('userEmail', res.user.email);
-          sessionStorage.setItem('userType', res.user.userType);
-          sessionStorage.setItem('userId', res.user._id);
+          localStorage.setItem('userEmail', res.user.email);
+          localStorage.setItem('userType', res.user.userType);
+          localStorage.setItem('userId', res.user._id);
 
 
           this.router.navigate(['/adminhome']);
         } else if (res.user.userType === 'user') {
 
-          sessionStorage.setItem('userEmail', res.user.email);
-          sessionStorage.setItem('userType', res.user.userType);
-          sessionStorage.setItem('userId', res.user._id);
+          localStorage.setItem('userEmail', res.user.email);
+          localStorage.setItem('userType', res.user.userType);
+          localStorage.setItem('userId', res.user._id);
 
 
           this.toastr.success("Welcome User") 

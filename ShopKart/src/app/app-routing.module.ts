@@ -10,6 +10,7 @@ import { authUserGuard } from './auth-guard/auth-user.guard';
 import { UserblogpageComponent } from './user/userblogpage/userblogpage.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
 
 const routes: Routes = [
   { path: '', component: LoginpageComponent },
@@ -28,6 +29,8 @@ const routes: Routes = [
         children:[
           {path: 'userlist', component: AdminViewUserlistComponent},
           {path: 'addproduct', component: AddproductComponent},
+          {path: 'addcategory', component: AddcategoryComponent},
+
         ]
       },
     ],

@@ -17,9 +17,9 @@ export class AdminNavbarComponent {
   logout(): void {
     // Implement your logout logic here
     // For example, clear user data from sessionStorage
-    sessionStorage.removeItem('userEmail');
-    sessionStorage.removeItem('userType');
-    sessionStorage.removeItem('userId');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userType');
+    localStorage.removeItem('userId');
     this.toastr.success("Logout Successful") 
     // Redirect to the login page or any other desired route
     this.router.navigate(['/']);

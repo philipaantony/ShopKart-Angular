@@ -23,6 +23,7 @@ import { BlogpageComponent } from './shared/blogpage/blogpage.component';
 import { UserblogpageComponent } from './user/userblogpage/userblogpage.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AddproductComponent } from './admin/addproduct/addproduct.component';
     BlogpageComponent,
     UserblogpageComponent,
     UserprofileComponent,
-    AddproductComponent
+    AddproductComponent,
+    AddcategoryComponent
   ],
   imports: [
     BrowserModule,

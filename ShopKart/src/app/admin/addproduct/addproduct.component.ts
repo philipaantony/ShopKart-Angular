@@ -11,7 +11,7 @@ export class AddproductComponent{
 
   submit = false;
 
-  registerdata = this.fb.group({
+  productdata = this.fb.group({
     productName: ['', Validators.required],
     productDescription: ['', Validators.required],
     productCategory: ['', Validators.required],
@@ -22,15 +22,15 @@ export class AddproductComponent{
   });
 
   get f() {
-    return this.registerdata.controls;
+    return this.productdata.controls;
   }
 
   onSubmit() {
     this.submit = true;
 
-    if (this.registerdata.valid) {
+    if (this.productdata.valid) {
       console.log("form submitted");
-      console.log(this.registerdata.value);
+      console.log(this.productdata.value);
      
       
       // Add any further actions you want to perform on successful form submission

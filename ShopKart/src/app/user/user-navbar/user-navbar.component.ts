@@ -14,9 +14,9 @@ export class UserNavbarComponent {
   logout(): void {
     // Implement your logout logic here
     // For example, clear user data from sessionStorage
-    sessionStorage.removeItem('userEmail');
-    sessionStorage.removeItem('userType');
-    sessionStorage.removeItem('userId');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userType');
+    localStorage.removeItem('userId');
 
     // Redirect to the login page or any other desired route
     this.router.navigate(['/']);

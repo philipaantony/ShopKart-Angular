@@ -7,14 +7,14 @@
       <h5 class="mb-0">Add Product</h5>
     </div>
     <div class="card-body" style="max-width: 600px">
-      <form [formGroup]="registerdata" (ngSubmit)="onSubmit()">
+      <form [formGroup]="productdata" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="productName" class="form-label">Product Name</label>
           <input
             type="text"
             formControlName="productName"
             [ngClass]="{
-              'is-invalid': submit && registerdata.controls.productName.errors
+              'is-invalid': submit && productdata.controls.productName.errors
             }"
             class="form-control"
             id="productName"
@@ -23,7 +23,7 @@
             required
           />
           <div
-            *ngIf="submit && f.productName.errors?.['required']"
+            *ngIf="submit && f.productName.errors?.['required'] " 
             class="invalid-feedback"
           >
             **Product Name is required
@@ -39,7 +39,7 @@
             formControlName="productDescription"
             [ngClass]="{
               'is-invalid':
-                submit && registerdata.controls.productDescription.errors
+                submit && productdata.controls.productDescription.errors
             }"
             class="form-control"
             id="productDescription"
@@ -64,7 +64,7 @@
             formControlName="productCategory"
             [ngClass]="{
               'is-invalid':
-                submit && registerdata.controls.productCategory.errors
+                submit && productdata.controls.productCategory.errors
             }"
             class="form-control"
             id="productCategory"
@@ -88,7 +88,7 @@
             type="number"
             formControlName="productPrice"
             [ngClass]="{
-              'is-invalid': submit && registerdata.controls.productPrice.errors
+              'is-invalid': submit && productdata.controls.productPrice.errors
             }"
             class="form-control"
             id="productPrice"
@@ -110,7 +110,7 @@
             type="number"
             formControlName="stockQuantity"
             [ngClass]="{
-              'is-invalid': submit && registerdata.controls.stockQuantity.errors
+              'is-invalid': submit && productdata.controls.stockQuantity.errors
             }"
             class="form-control"
             id="stockQuantity"
@@ -132,7 +132,7 @@
             type="text"
             formControlName="manufacturer"
             [ngClass]="{
-              'is-invalid': submit && registerdata.controls.manufacturer.errors
+              'is-invalid': submit && productdata.controls.manufacturer.errors
             }"
             class="form-control"
             id="manufacturer"
@@ -154,7 +154,7 @@
             type="file"
             formControlName="imageUrl"
             [ngClass]="{
-              'is-invalid': submit && registerdata.controls.imageUrl.errors
+              'is-invalid': submit && productdata.controls.imageUrl.errors
             }"
             class="form-control"
             id="imageUrl"

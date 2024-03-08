@@ -20,6 +20,7 @@ mongoose
 
 const Login = require('./model/loginmodel');
 const User = require('./model/usermodel');
+const Category = require('./model/categorymodel')
 
 
 
@@ -136,3 +137,35 @@ app.put("/api/update-status/:id", async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 });
+
+app.post('/api/categories', async (req, res) => {
+    try {
+        const { category } = req.body;
+        console.log(req.body);
+        const newCategory = new Category({ category });
+        const savedCategory = await newCategory.save();
+
+        res.status(201).json(savedCategory);
+    } catch (error) {
+        console.error(error);
+
+        if (error.code === 11000) {
+            res.status(400).json({ error: 'Category already exists. Please choose a different category.' });
+        } else {
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    }
+});
+
+
+// GET endpoint to retrieve all categories
+app.get('/api/categories', async (req, res) => {
+    try {
+        const allCategories = await Category.find();
+        res.status(200).json(allCategories);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+

@@ -2,9 +2,9 @@ import { CanActivateChildFn } from '@angular/router';
 
 
 export const authUserGuard: CanActivateChildFn = (childRoute, state) => {
-  const userEmail = sessionStorage.getItem('userEmail');
-  const userType = sessionStorage.getItem('userType');
-  const userId = sessionStorage.getItem('userId');
+  const userEmail = localStorage.getItem('userEmail');
+  const userType = localStorage.getItem('userType');
+  const userId = localStorage.getItem('userId');
   const isAuthenticated = !!userEmail && !!userType && !!userId;
 
   if (isAuthenticated && userType === 'user') {
