@@ -9,7 +9,6 @@
     "test": "ng test",
     "serve:ssr:ShopKart": "node dist/shop-kart/server/server.mjs"
   },
-  
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.2.3",
@@ -23,6 +22,7 @@
     "@angular/router": "^17.1.0",
     "@angular/ssr": "^17.1.1",
     "express": "^4.18.2",
+    "localstorage-polyfill": "^1.0.1",
     "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

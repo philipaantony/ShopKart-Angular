@@ -23,7 +23,7 @@
             required
           />
           <div
-            *ngIf="submit && f.productName.errors?.['required'] " 
+            *ngIf="submit && f.productName.errors?.['required'] "
             class="invalid-feedback"
           >
             **Product Name is required
@@ -56,22 +56,31 @@
         </div>
 
         <div class="mb-3">
-          <label for="productCategory" class="form-label"
-            >Product Category</label
-          >
-          <input
-            type="text"
-            formControlName="productCategory"
-            [ngClass]="{
-              'is-invalid':
-                submit && productdata.controls.productCategory.errors
-            }"
-            class="form-control"
+          
+
+          <label for="productCategory">Product Category</label>
+          <select
+    
             id="productCategory"
+            class="form-control"
+            placeholder="select a value"
+            formControlName="productCategory"
             name="productCategory"
-            placeholder="Product Category"
-            required
-          />
+            [ngClass]="{ 'is-invalid': submit && productdata.controls.productCategory.errors }"
+          >
+          <option value="">Select your option</option>
+            <option *ngFor="let category of categories" [value]="category.category">
+              {{ category.category }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              f.productCategory.invalid &&
+              (f.productCategory.dirty || f.productCategory.touched)
+            ">
+      
+          </div>
+
           <div
             *ngIf="submit && f.productCategory.errors?.['required']"
             class="invalid-feedback"
@@ -168,6 +177,17 @@
           >
             **Image URL is required
           </div>
+
+          <div *ngIf="submit && f.imageUrl.errors">
+            <ul class="list-group">
+              <li *ngFor="let error of f.imageUrl.errors | keyvalue">
+                <span *ngIf="error.key === 'required'">Image URL is required.</span>
+                <span *ngIf="error.key === 'imageTooLarge'">Image is too large (maximum 5MB allowed).</span>
+                <span *ngIf="error.key === 'invalidImageType'">Invalid image format. Please select a JPEG, PNG, or GIF.</span>
+              </li>
+            </ul>
+          </div>
+          
         </div>
 
         <!-- ... (rest of your template) ... -->
